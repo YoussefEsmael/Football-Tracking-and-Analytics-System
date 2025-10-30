@@ -57,3 +57,71 @@ python main_enhanced.py `
   --model "models/best (4).pt" `
   --tracker-config "configs/botsort.yaml" `
   --no-siglip
+
+
+💡 If you want to use the SigLIP Team Classifier, remove the --no-siglip flag.
+You can adjust thresholds and parameters in config.py or configs/botsort.yaml depending on your video or environment.
+
+📊 Generated Results
+
+After successful execution, the following will be generated:
+
+analytics_export/
+│
+├── data/
+│   ├── id_mappings.json
+│   ├── player_metrics.csv
+│   └── player_positions.csv
+│   ├── output/
+      ├── tracked
+├── heatmaps/
+│   ├── team_0_heatmap.png
+│   └── team_1_heatmap.png
+│
+├── player_heatmaps/
+│   ├── player_1_heatmap.png
+│   └── ...
+│
+├── performance_plots/
+│   ├── sprint_count.png
+│   ├── speed_comparison.png
+│   ├── team_comparison_dashboard.png
+│   └── ...
+│
+└── reports/
+    └── analysis_summary.txt
+
+📦 Installation
+git clone https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System.git
+cd Football-Tracking-and-Analytics-System
+pip install -r requirements.txt
+
+🔗 Model Access
+
+The trained YOLOv11 model used in this project can be accessed via the provided Google Drive link (add yours here):
+
+Download Model from Google Drive
+
+⚙️ Limitations
+
+Re-identification:
+
+ReID occasionally assigns new IDs if a player disappears and reappears after several frames.
+
+Fine-tuning this part can lead to even more stable analytics and richer statistics.
+
+Occlusion Handling:
+
+Occlusions between players are handled very well — team classification remains accurate.
+
+In rare cases, one of the occluded players might be given a new ID.
+
+🏁 Summary
+
+This system provides an end-to-end football analytics pipeline that detects, tracks, classifies, and analyzes football match footage — generating insightful visual and numerical outputs that can assist analysts, coaches, and AI researchers in sports analytics.
+
+🧾 Author
+
+Youssef Esmael
+📍 Egypt
+📧 ismmailmuhamed@gmail.com
