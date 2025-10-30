@@ -1,9 +1,3 @@
-# ⚽ Football Tracking and Analytics System
-
-A complete end-to-end system for **football (soccer) video analytics**, integrating **object detection, player tracking, team classification, and advanced match analytics** — including positional heatmaps and performance visualizations.
-
----
-
 ## ⚙️ Installation
 
 ```bash
@@ -17,13 +11,23 @@ conda activate football_tracker
 
 # Install dependencies
 pip install -r requirements.txt
+▶️ Usage
+Run the full analytics pipeline:
 
-## ▶️ Usage
-#python src/main_enhanced.py --video "path/to/match.mp4"
-Example
+bash
+Copy code
+python src/main_enhanced.py --video "path/to/match.mp4"
+Example:
+
+bash
+Copy code
 python src/main_enhanced.py \
   --video "input/match.mp4" \
   --out "output/processed_match.mp4" \
   --model "models/best (4).pt" \
   --tracker-config "configs/botsort.yaml" \
   --no-siglip
+yaml
+Copy code
+
+---
