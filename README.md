@@ -1,146 +1,219 @@
 # ⚽ Football Tracking and Analytics System
 
-This project is a **comprehensive football analytics pipeline** that combines **object detection**, **multi-object tracking**, **team classification**, and **advanced tactical analytics**.  
-It leverages **YOLOv11**, **BoT-SORT tracking**, and **custom analytical modules** to analyze matches and extract meaningful statistics, visualizations, and heatmaps for both teams and individual players.
+<p align="center">
+  <img src="analytics_export/heatmaps/team_0_heatmap.png" width="45%" alt="Team 0 Heatmap">
+  <img src="analytics_export/heatmaps/team_1_heatmap.png" width="45%" alt="Team 1 Heatmap">
+</p>
+
+### 🎯 Objective
+This project is an **end-to-end football (soccer) analytics system** designed to detect, track, and analyze player performance from broadcast match videos.  
+It combines **YOLO-based detection**, **BoT-SORT tracking**, **team classification using SigLIP**, and **post-match performance analytics**.
 
 ---
 
-## 🚀 Features Overview
+## 🚀 Key Features
 
-- **Detection:** Detects all players, referees, goalkeepers, and the ball using YOLOv11.  
-- **Tracking:** Tracks detected objects over time with BoT-SORT.  
-- **Team Classification:** Classifies players into their teams using either:
-  - 🟥 `ColorTeamClassifier` (fast, efficient, works well)
-  - 🟦 `SigLIPTeamClassifier` (more robust, slower, requires higher computation)
-- **Analytics Export:** Generates structured CSV files, plots, and heatmaps for team and player performance.
-- **Customizable Configuration:** Modify `config.py` and `configs/botsort.yaml` to tune behavior per match/video.
-
----
-
-## 🧩 Core Modules Description
-
-| Module | Description |
-|--------|--------------|
-| **`src/main_enhanced.py`** | The main execution script — integrates detection, tracking, team classification, and analytics generation. |
-| **`src/detection.py`** | Handles YOLOv11 object detection for players, referees, goalkeepers, and the ball. |
-| **`src/botsort_tracker.py`** | Implements BoT-SORT multi-object tracker to maintain consistent IDs across frames. |
-| **`src/team_classifier.py`** | Uses color features from uniforms to classify players into teams (fast). |
-| **`src/siglip_team_classifier.py`** | Uses a SigLIP-based visual-text model for more accurate but slower team classification. |
-| **`src/feature_extractor.py`** | Extracts color and spatial features for classification and analytics. |
-| **`src/id_manager_simple.py`** | Manages player IDs and mappings between frames. |
-| **`src/analytics.py`** | Processes positional and performance data to generate advanced statistics. |
-| **`src/export_manager.py`** | Exports analytical data, plots, and heatmaps to the `analytics_export/` folder. |
-| **`src/visualizer.py`** | Handles match video overlays, bounding boxes, and visualization of player movements. |
-| **`src/utils.py`** | Helper functions for preprocessing, coordinate conversion, and drawing. |
-| **`src/config.py`** | Configurable parameters — adjust paths, thresholds, frame limits, etc. |
-| **`configs/botsort.yaml`** | BoT-SORT configuration for tracker thresholds and ReID settings. |
+✅ **Player Detection** — Powered by YOLOv11 for real-time detection.  
+✅ **Player Tracking** — Integrated **BoT-SORT** tracker with ReID for stable ID assignment.  
+✅ **Team Classification** — Uses **SigLIP** embeddings to classify players by jersey color and team.  
+✅ **Performance Analytics** — Computes metrics such as:
+   - Sprint counts  
+   - Player movement distances  
+   - Speed distribution  
+   - Team dominance and pass activity  
+✅ **Heatmap Visualization** — Generates team and player-level heatmaps from positional data.  
+✅ **Automated Video Export** — Creates processed output video with bounding boxes, IDs, and team labels.  
 
 ---
 
-## 🖼️ Example Analytics Results
+## 🧠 System Pipeline
 
-### 🔥 Team Heatmaps
+       ┌────────────────────┐
+       │    Input Video     │
+       └─────────┬──────────┘
+                 │
+                 ▼
+         [ YOLO Detection ]
+                 │
+                 ▼
+          [ BoT-SORT Tracker ]
+                 │
+                 ▼
+         [ SigLIP Team Classifier ]
+                 │
+                 ▼
+        [ Player Metrics + Analytics ]
+                 │
+                 ▼
+       [ Heatmaps & Performance Plots ]
+                 │
+                 ▼
+         [ Exported Analysis Reports ]
+                 │
+                 ▼
+         [ Output Video Generation ]
 
-Player movement density across the field.
-
-| Team 0 Heatmap | Team 1 Heatmap |
-|----------------|----------------|
-| ![Team 0 Heatmap](analytics_export/heatmaps/team_0_heatmap.png) | ![Team 1 Heatmap](analytics_export/heatmaps/team_1_heatmap.png) |
 
 ---
 
-### 📈 Performance Plots
+## 🗂️ Project Structure
 
-Visual summaries of performance analytics such as sprint counts, speed comparison, and team dashboards.
+Football-Tracking-and-Analytics-System/
+│
+├── 📁 src/ # Source code modules
+│ ├── main_enhanced.py # Main pipeline entrypoint
+│ ├── detection.py # YOLO detection logic
+│ ├── botsort_tracker.py # BoT-SORT tracker integration
+│ ├── team_classifier.py # Team classification (color-based)
+│ ├── siglip_team_classifier.py # Team classification (SigLIP-based)
+│ ├── feature_extractor.py
+│ ├── analytics.py # Compute stats + visualizations
+│ ├── export_manager.py # Handles file exports and reports
+│ ├── visualizer.py # Overlay tracking info on frames
+│ ├── config.py # User configuration parameters
+│ └── utils.py # Helper functions
+│
+├── ⚙️ configs/
+│ └── botsort.yaml # Tracker configuration
+│
+├── 🧩 models/
+│ └── (YOLO & SigLIP weights, optional via LFS)
+│
+├── 📊 analytics_export/
+│ ├── data/
+│ │ ├── player_positions.csv
+│ │ ├── player_metrics.csv
+│ │ └── id_mappings.json
+│ │
+│ ├── heatmaps/
+│ │ ├── team_0_heatmap.png
+│ │ └── team_1_heatmap.png
+│ │
+│ ├── performance_plots/
+│ │ ├── sprint_count.png
+│ │ ├── speed_comparison.png
+│ │ ├── team_comparison_dashboard.png
+│ │ └── pass_accuracy_vs_volume.png
+│ │
+│ ├── player_heatmaps/
+│ │ ├── player_1_heatmap.png
+│ │ ├── player_2_heatmap.png
+│ │ └── ...
+│ │
+│ └── reports/
+│ └── analysis_summary.txt
+│
+├── 🎥 output/
+│ └── processed_match.mp4 # Output video (detection + tracking)
+│
+├── 📄 requirements.txt # Dependencies
+└── 📄 README.md
 
-| Sprint Count | Speed Comparison |
-|---------------|------------------|
-| ![Sprint Count](analytics_export/performance_plots/sprint_count.png) | ![Speed Comparison](analytics_export/performance_plots/speed_comparison.png) |
 
-| Team Comparison Dashboard |
-|----------------------------|
-| ![Team Comparison Dashboard](analytics_export/performance_plots/team_comparison_dashboard.png) |
 
 ---
 
-## 🧠 How to Run
+## 📈 Analytics Results
+
+### 🧭 Team Heatmaps
+<p align="center">
+  <img src="analytics_export/heatmaps/team_0_heatmap.png" width="45%">
+  <img src="analytics_export/heatmaps/team_1_heatmap.png" width="45%">
+</p>
+
+### 📊 Performance Plots
+<p align="center">
+  <img src="analytics_export/performance_plots/sprint_count.png" width="45%">
+  <img src="analytics_export/performance_plots/speed_comparison.png" width="45%">
+  <img src="analytics_export/performance_plots/team_comparison_dashboard.png" width="45%">
+  <img src="analytics_export/performance_plots/pass_accuracy_vs_volume.png" width="45%">
+</p>
+
+---
+
+## ⚙️ Installation
 
 ```bash
-python main_enhanced.py `
-  --video "path_to_your_match_video.mp4" `
-  --out "output/tracked.mp4" `
-  --model "models/best (4).pt" `
-  --tracker-config "configs/botsort.yaml" `
-  --no-siglip
-💡 If you want to use the SigLIP Team Classifier, remove the --no-siglip flag.
-
-You can adjust thresholds and parameters in config.py or configs/botsort.yaml depending on your video or environment.
-
-📊 Generated Results
-After successful execution, the following structure will be generated:
-
-kotlin
-Copy code
-analytics_export/
-│
-├── data/
-│   ├── id_mappings.json
-│   ├── player_metrics.csv
-│   └── player_positions.csv
-│
-├── output/
-│   └── tracked.mp4
-│
-├── heatmaps/
-│   ├── team_0_heatmap.png
-│   └── team_1_heatmap.png
-│
-├── player_heatmaps/
-│   ├── player_1_heatmap.png
-│   └── ...
-│
-├── performance_plots/
-│   ├── sprint_count.png
-│   ├── speed_comparison.png
-│   ├── team_comparison_dashboard.png
-│   └── ...
-│
-└── reports/
-    └── analysis_summary.txt
-📦 Installation
-bash
-Copy code
+# Clone repository
 git clone https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System.git
 cd Football-Tracking-and-Analytics-System
+
+# (Optional) Create virtual environment
+conda create -n football_tracker python=3.10
+conda activate football_tracker
+
+# Install dependencies
 pip install -r requirements.txt
-🔗 Model Access
-The trained YOLOv11 model used in this project can be accessed via Google Drive:
 
-👉 Download Model from Google Drive
 
-(Add your actual drive link above)
+▶️ Usage
+1️⃣ Run Tracking & Analytics
+python src/main_enhanced.py --video "path/to/match.mp4"
 
-⚙️ Limitations
-🔁 Re-identification
-ReID may assign new IDs if a player disappears and reappears after several frames.
-Fine-tuning this part can lead to even more stable analytics and richer statistics.
+2️⃣ Output Generated
 
-👥 Occlusion Handling
-Occlusions between players are handled very well — team classification remains accurate.
-In rare cases, one of the occluded players might be given a new ID.
+After successful execution, the following will be created:
 
-🏁 Summary
-This system provides an end-to-end football analytics pipeline that detects, tracks, classifies, and analyzes football match footage — generating insightful visual and numerical outputs that can assist analysts, coaches, and AI researchers in sports analytics.
+output/
+ └── processed_match.mp4              # Video with detections, tracking, and team overlays
 
-👨‍💻 Author
-Youssef Esmael
-📍 Egypt
-📧 ismmailmuhamed@gmail.com
-🔗 GitHub Profile
+analytics_export/
+ ├── heatmaps/                        # Team and player positional heatmaps
+ ├── performance_plots/               # Sprint and speed metrics
+ ├── data/                            # Raw positional and metrics CSVs
+ ├── player_heatmaps/                 # Individual player activity maps
+ └── reports/analysis_summary.txt     # Match summary report
 
-🏅 Acknowledgements
-Ultralytics YOLO
+🧩 Configuration
+
+You can modify detection, tracking, and classification behavior from:
+
+src/config.py → frame rate, thresholds, paths
+
+configs/botsort.yaml → ReID and tracker thresholds
+
+Example snippet:
+
+track_high_thresh: 0.6
+appearance_thresh: 0.3
+with_reid: true
+proximity_thresh: 0.6
+
+🧠 Future Improvements
+
+ ReID fine-tuning for jersey consistency under occlusion
+
+ Automatic event detection (pass, goal, tackle)
+
+ Multi-view camera synchronization
+
+ Interactive web dashboard for analytics visualization
+
+🏆 Acknowledgements
+
+This project builds upon the following technologies:
+
+Ultralytics YOLOv11
 
 BoT-SORT
 
+SigLIP (Google Research)
+
 TorchReID
+
+OpenCV
+
+Matplotlib
+
+NumPy
+
+🧾 Author
+
+Youssef Esmael
+📍 Egypt
+📧 ismmailmuhamed@gmail.com
+
+📜 License
+
+This repository is released under the MIT License.
+Feel free to use, modify, and build upon it with attribution.
