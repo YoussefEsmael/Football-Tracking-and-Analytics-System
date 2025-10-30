@@ -1,0 +1,27 @@
+tracker_type: botsort
+
+# Detection thresholds
+track_high_thresh: 0.65
+track_low_thresh: 0.15
+new_track_thresh: 0.75
+
+# Track management 
+track_buffer: 120          
+match_thresh: 0.80         
+fuse_score: true
+
+# ReID parameters 
+proximity_thresh: 0.7     
+appearance_thresh: 0.5  
+with_reid: true
+model: auto
+
+# Camera motion
+gmc_method: sparseOptFlow
+
+# Frame rate
+frame_rate: 25
+
+# Additional parameters for better ReID
+min_box_area: 100          # Minimum detection box area
+aspect_ratio_thresh: 1.6   # Filter unrealistic aspect ratios

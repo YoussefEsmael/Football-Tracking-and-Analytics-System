@@ -1,0 +1,217 @@
+{
+  "metadata": {
+    "created": "2025-10-30T15:42:09.124938",
+    "total_global_ids": 25,
+    "statistics": {
+      "total_ids_created": 25,
+      "track_assignments": 25,
+      "tracks_mapped": 25,
+      "active_ids": 24,
+      "total_tracks": 24
+    },
+    "note": "BoT-SORT handles ReID internally"
+  },
+  "id_mappings": {
+    "track_1": 1,
+    "track_2": 2,
+    "track_3": 3,
+    "track_4": 4,
+    "track_5": 5,
+    "track_6": 6,
+    "track_7": 7,
+    "track_8": 8,
+    "track_9": 9,
+    "track_10": 10,
+    "track_11": 11,
+    "track_12": 12,
+    "track_13": 13,
+    "track_14": 14,
+    "track_16": 15,
+    "track_17": 16,
+    "track_15": 18,
+    "track_22": 19,
+    "track_24": 20,
+    "track_25": 21,
+    "track_26": 22,
+    "track_28": 23,
+    "track_31": 24,
+    "track_32": 25
+  },
+  "player_metadata": {
+    "1": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 598,
+      "class": 2,
+      "botsort_track_id": 1
+    },
+    "2": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 599,
+      "class": 2,
+      "botsort_track_id": 2
+    },
+    "3": {
+      "first_seen": 1,
+      "last_seen": 500,
+      "total_frames": 498,
+      "class": 2,
+      "botsort_track_id": 3
+    },
+    "4": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 4
+    },
+    "5": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 596,
+      "class": 2,
+      "botsort_track_id": 5
+    },
+    "6": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 6
+    },
+    "7": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 7
+    },
+    "8": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 8
+    },
+    "9": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 9
+    },
+    "10": {
+      "first_seen": 1,
+      "last_seen": 278,
+      "total_frames": 278,
+      "class": 2,
+      "botsort_track_id": 10
+    },
+    "11": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 11
+    },
+    "12": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 12
+    },
+    "13": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 600,
+      "class": 2,
+      "botsort_track_id": 13
+    },
+    "14": {
+      "first_seen": 1,
+      "last_seen": 600,
+      "total_frames": 583,
+      "class": 2,
+      "botsort_track_id": 14
+    },
+    "15": {
+      "first_seen": 4,
+      "last_seen": 600,
+      "total_frames": 596,
+      "class": 2,
+      "botsort_track_id": 16
+    },
+    "16": {
+      "first_seen": 5,
+      "last_seen": 600,
+      "total_frames": 596,
+      "class": 2,
+      "botsort_track_id": 17
+    },
+    "17": {
+      "first_seen": 9,
+      "last_seen": 150,
+      "total_frames": 142,
+      "class": 2,
+      "botsort_track_id": 18
+    },
+    "18": {
+      "first_seen": 60,
+      "last_seen": 365,
+      "total_frames": 30,
+      "class": 2,
+      "botsort_track_id": 15
+    },
+    "19": {
+      "first_seen": 133,
+      "last_seen": 600,
+      "total_frames": 468,
+      "class": 2,
+      "botsort_track_id": 22
+    },
+    "20": {
+      "first_seen": 241,
+      "last_seen": 241,
+      "total_frames": 1,
+      "class": 2,
+      "botsort_track_id": 24
+    },
+    "21": {
+      "first_seen": 242,
+      "last_seen": 600,
+      "total_frames": 359,
+      "class": 2,
+      "botsort_track_id": 25
+    },
+    "22": {
+      "first_seen": 387,
+      "last_seen": 479,
+      "total_frames": 93,
+      "class": 1,
+      "botsort_track_id": 26
+    },
+    "23": {
+      "first_seen": 460,
+      "last_seen": 600,
+      "total_frames": 141,
+      "class": 2,
+      "botsort_track_id": 28
+    },
+    "24": {
+      "first_seen": 509,
+      "last_seen": 600,
+      "total_frames": 92,
+      "class": 2,
+      "botsort_track_id": 31
+    },
+    "25": {
+      "first_seen": 511,
+      "last_seen": 600,
+      "total_frames": 90,
+      "class": 2,
+      "botsort_track_id": 32
+    }
+  }
+}

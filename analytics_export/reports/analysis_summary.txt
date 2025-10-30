@@ -1,0 +1,15 @@
+============================================================
+FOOTBALL TRACKING ANALYSIS SUMMARY
+Generated: 2025-10-30 15:42:09
+============================================================
+
+Output directory: analytics_export
+
+Available exports:
+  - Player tracking data (CSV)
+  - Performance metrics (CSV)
+  - Pass networks (PNG)
+  - Heatmaps (PNG)
+  - Performance visualizations (PNG)
+  - Possession analysis (PNG)
+  - Transition analysis (PNG)
