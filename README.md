@@ -57,23 +57,25 @@ python main_enhanced.py `
   --model "models/best (4).pt" `
   --tracker-config "configs/botsort.yaml" `
   --no-siglip
-
-
 💡 If you want to use the SigLIP Team Classifier, remove the --no-siglip flag.
+
 You can adjust thresholds and parameters in config.py or configs/botsort.yaml depending on your video or environment.
 
 📊 Generated Results
+After successful execution, the following structure will be generated:
 
-After successful execution, the following will be generated:
-
+kotlin
+Copy code
 analytics_export/
 │
 ├── data/
 │   ├── id_mappings.json
 │   ├── player_metrics.csv
 │   └── player_positions.csv
-│   ├── output/
-      ├── tracked
+│
+├── output/
+│   └── tracked.mp4
+│
 ├── heatmaps/
 │   ├── team_0_heatmap.png
 │   └── team_1_heatmap.png
@@ -90,38 +92,40 @@ analytics_export/
 │
 └── reports/
     └── analysis_summary.txt
-
 📦 Installation
+bash
+Copy code
 git clone https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System.git
 cd Football-Tracking-and-Analytics-System
 pip install -r requirements.txt
-
 🔗 Model Access
+The trained YOLOv11 model used in this project can be accessed via Google Drive:
 
-The trained YOLOv11 model used in this project can be accessed via the provided Google Drive link (add yours here):
+👉 Download Model from Google Drive
 
-Download Model from Google Drive
+(Add your actual drive link above)
 
 ⚙️ Limitations
-
-Re-identification:
-
-ReID occasionally assigns new IDs if a player disappears and reappears after several frames.
-
+🔁 Re-identification
+ReID may assign new IDs if a player disappears and reappears after several frames.
 Fine-tuning this part can lead to even more stable analytics and richer statistics.
 
-Occlusion Handling:
-
+👥 Occlusion Handling
 Occlusions between players are handled very well — team classification remains accurate.
-
 In rare cases, one of the occluded players might be given a new ID.
 
 🏁 Summary
-
 This system provides an end-to-end football analytics pipeline that detects, tracks, classifies, and analyzes football match footage — generating insightful visual and numerical outputs that can assist analysts, coaches, and AI researchers in sports analytics.
 
-🧾 Author
-
+👨‍💻 Author
 Youssef Esmael
 📍 Egypt
 📧 ismmailmuhamed@gmail.com
+🔗 GitHub Profile
+
+🏅 Acknowledgements
+Ultralytics YOLO
+
+BoT-SORT
+
+TorchReID
