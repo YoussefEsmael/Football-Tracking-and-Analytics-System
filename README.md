@@ -39,12 +39,27 @@ It leverages **YOLOv11**, **BoT-SORT tracking**, and **custom analytical modules
 
 ## 🖼️ Example Analytics Results
 
-Below are sample outputs from the analytics stage.  
-These are automatically generated under `analytics_export/heatmaps/`.
+### 🔥 Team Heatmaps
+
+Player movement density across the field.
 
 | Team 0 Heatmap | Team 1 Heatmap |
 |----------------|----------------|
 | ![Team 0 Heatmap](analytics_export/heatmaps/team_0_heatmap.png) | ![Team 1 Heatmap](analytics_export/heatmaps/team_1_heatmap.png) |
+
+---
+
+### 📈 Performance Plots
+
+Visual summaries of performance analytics such as sprint counts, speed comparison, and team dashboards.
+
+| Sprint Count | Speed Comparison |
+|---------------|------------------|
+| ![Sprint Count](analytics_export/performance_plots/sprint_count.png) | ![Speed Comparison](analytics_export/performance_plots/speed_comparison.png) |
+
+| Team Comparison Dashboard |
+|----------------------------|
+| ![Team Comparison Dashboard](analytics_export/performance_plots/team_comparison_dashboard.png) |
 
 ---
 
