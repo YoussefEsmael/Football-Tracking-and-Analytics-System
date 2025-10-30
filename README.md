@@ -27,7 +27,7 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 ### Sample Output Video
 *[Your output video showcasing tracked players with colored ellipses, trails, and team assignments]*
 
-![Sample Frame](path/to/sample_frame.png)
+![Sample Frame]("C:\Users\yossef\Desktop\football is life\output-no-siglip.mp4")
 
 ### Analytics Dashboard
 *Team comparison showing distance, passes, and speed metrics*
@@ -331,3 +331,4 @@ For questions or issues, please open a GitHub issue or contact [your-email@examp
 ---
 
 ⭐ **If you find this project useful, please consider giving it a star!** ⭐
+
