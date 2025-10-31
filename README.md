@@ -264,25 +264,16 @@ frame_rate: 25
   - Use higher FPS videos for better temporal continuity
 - **Status**: Inherent limitation of current BoT-SORT + spatial-temporal matching approach
 
-### 2. **Occlusion Handling**
-- **Issue**: When players overlap heavily (e.g., during tackles, set pieces), the occluded player may:
-  - Temporarily lose tracking
-  - Be assigned a new ID when visible again
-- **Impact**: ID fragmentation in crowded scenes
-- **Works Well**: Short-term occlusions (1-3 frames) are handled correctly
-- **Fails**: Extended occlusions (5+ frames) with significant player movement
-- **Mitigation**: Team classification remains accurate during occlusion, only ID consistency is affected
-
-### 3. **Team Classification Edge Cases**
+### 2. **Team Classification Edge Cases**
 - **Issue**: Players with similar jersey colors (e.g., dark blue vs black) may be misclassified
 - **Works Well**: Distinct team colors (red vs blue, white vs dark)
-- **Mitigation**: SigLIP model provides better robustness than traditional color histograms
+- **Mitigation**: SigLIP model provides better robustness than traditional color histograms which you can use here as well.
 
-### 4. **Camera Angle Dependency**
+### 3. **Camera Angle Dependency**
 - **Best Results**: Broadcast-style tactical camera (side view, elevated)
 - **Limitations**: Close-ups, behind-goal views, and rapidly moving cameras reduce accuracy
 
-### 5. **Disabled Analytics**
+### 4. **Disabled Analytics**
 The following outputs are **experimental** and disabled due to accuracy concerns:
 - Pass network detection (requires ball tracking improvements)
 - Possession analysis (needs refined ball proximity logic)
@@ -407,4 +398,5 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
 
