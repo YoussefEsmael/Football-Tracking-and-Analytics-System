@@ -4,6 +4,7 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/YoussefEsmael/Football-Tracking-and-Analytics-System?style=social)](https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System)
 
 ## 🎯 Features
 
@@ -25,30 +26,51 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 ## 🎥 Results
 
 ### Sample Output Video
-*[Your output video showcasing tracked players with colored ellipses, trails, and team assignments]*
+*Tracked players with team-colored ellipses, persistent IDs, and movement trails*
 
-![Sample Frame]("C:\Users\yossef\Desktop\football is life\output-no-siglip.mp4")
+![Sample Frame](analytics_export/sample_frame.png)
+*Players automatically tracked and classified into teams with unique IDs*
 
-### Analytics Dashboard
-*Team comparison showing distance, passes, and speed metrics*
+### Performance Analytics
 
-![Team Dashboard](path/to/team_comparison_dashboard.png)
+#### Team Comparison Dashboard
+*Comprehensive team statistics including distance, passes, speed, and sprints*
+
+![Team Dashboard](analytics_export/performance_plots/team_comparison_dashboard.png)
+
+#### Distance Coverage Analysis
+*Total distance covered by each player throughout the match*
+
+![Distance Comparison](analytics_export/performance_plots/distance_per_player.png)
+
+#### Speed Metrics
+*Maximum and average speed analysis for all tracked players*
+
+![Speed Analysis](analytics_export/performance_plots/speed_comparison.png)
+
+#### Pass Analysis
+*Relationship between pass volume and accuracy*
+
+![Pass Accuracy](analytics_export/performance_plots/pass_accuracy_vs_volume.png)
+
+#### Sprint Performance
+*Number of high-intensity sprints per player*
+
+![Sprint Count](analytics_export/performance_plots/sprint_count.png)
 
 ### Player Heatmaps
-*Individual movement patterns across the pitch*
+*Individual movement patterns showing field positioning and coverage*
 
-| Player Heatmap | Sprint Zones |
+| Team A Movement | Team B Movement |
 |:---:|:---:|
-| ![Heatmap](path/to/player_heatmap.png) | ![Sprints](path/to/sprint_zones.png) |
+| ![Team 0 Heatmap](analytics_export/heatmaps/team_0_heatmap.png) | ![Team 1 Heatmap](analytics_export/heatmaps/team_1_heatmap.png) |
 
-### Performance Metrics
-![Distance Comparison](path/to/distance_per_player.png)
-![Speed Analysis](path/to/speed_comparison.png)
+*Heatmaps reveal tactical positioning, work rate, and preferred zones of operation*
 
 ## 📁 Project Structure
 
 ```
-football_tracking/
+Football-Tracking-and-Analytics-System/
 ├── main.py                          # Main pipeline script
 ├── config.py                        # Configuration parameters
 ├── botsort_tracker.py              # BoT-SORT integration
@@ -64,15 +86,24 @@ football_tracking/
 ├── configs/
 │   └── botsort.yaml                # BoT-SORT configuration
 ├── models/
-│   └── best.pt                     # YOLOv11 model (see below)
+│   └── best.pt                     # YOLOv11 model (download required)
 ├── analytics_export/               # Generated outputs
 │   ├── data/                       # CSV exports
 │   │   ├── player_positions.csv
 │   │   ├── player_metrics.csv
 │   │   ├── ball_positions.csv
 │   │   └── pass_events.csv
-│   ├── player_heatmaps/           # Individual heatmaps
+│   ├── heatmaps/                   # Team movement heatmaps
+│   │   ├── team_0_heatmap.png
+│   │   └── team_1_heatmap.png
+│   ├── player_heatmaps/           # Individual player heatmaps
 │   ├── performance_plots/         # Performance visualizations
+│   │   ├── distance_per_player.png
+│   │   ├── speed_comparison.png
+│   │   ├── pass_accuracy_vs_volume.png
+│   │   ├── sprint_count.png
+│   │   ├── high_intensity_distance.png
+│   │   └── team_comparison_dashboard.png
 │   └── reports/                   # Summary reports
 └── README.md
 ```
@@ -95,8 +126,8 @@ These features are experimental and may produce inconsistent results in the curr
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/yourusername/football-tracking.git
-cd football-tracking
+git clone https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System.git
+cd Football-Tracking-and-Analytics-System
 ```
 
 ### Step 2: Create Virtual Environment
@@ -110,7 +141,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-**Core dependencies** (see `requirements.txt` for full list):
+**Core dependencies**:
 - `ultralytics` - YOLOv11 detection & BoT-SORT tracking
 - `transformers` + `torch` - SigLIP team classification
 - `umap-learn` - Dimensionality reduction for clustering
@@ -121,14 +152,21 @@ pip install -r requirements.txt
 ### Step 4: Download YOLOv11 Model
 The custom-trained YOLOv11 model is **not included** in this repository due to file size.
 
-📥 **Download Link**: [YOLOv11 Football Model on Google Drive](https://drive.google.com/your-model-link)
+📥 **Download Link**: [YOLOv11 Football Detection Model (Google Drive)](https://drive.google.com/file/d/15cyCqlcRULXXbgw_2761x7zFRlGGZSm9/view?usp=sharing)
 
-After downloading:
-1. Place `best.pt` in the `models/` directory
-2. Update `config.py` if using a different path:
+**After downloading:**
+1. Create `models/` directory if it doesn't exist
+2. Place the downloaded `best.pt` file in `models/`
+3. Verify the path matches `config.py`:
    ```python
-   YOLO_MODEL_PATH = "path/to/your/model.pt"
+   YOLO_MODEL_PATH = "models/best.pt"
    ```
+
+**Model Info:**
+- Framework: YOLOv11
+- Classes: Player, Goalkeeper, Referee, Ball
+- Training: Custom dataset with football-specific annotations
+- Size: ~130 MB
 
 ## 📖 Usage
 
@@ -186,24 +224,38 @@ Fine-tune tracking behavior:
 tracker_type: botsort
 
 # Detection thresholds
-track_high_thresh: 0.6               # High confidence threshold
-track_low_thresh: 0.1                # Low confidence threshold  
-new_track_thresh: 0.7                # Threshold for new tracks
+track_high_thresh: 0.65              # High confidence threshold
+track_low_thresh: 0.15               # Low confidence threshold  
+new_track_thresh: 0.75               # Threshold for new tracks
 
 # Track management
-track_buffer: 30                     # Frames to keep lost tracks (adjust for FPS)
-match_thresh: 0.8                    # IoU threshold for matching
+track_buffer: 120                    # Frames to keep lost tracks (2x for 50 FPS)
+match_thresh: 0.80                   # IoU threshold for matching
+fuse_score: true                     # Fuse detection + tracking scores
 
-# ReID
+# ReID parameters
 with_reid: true                      # Enable appearance-based ReID
-proximity_thresh: 0.5                # Proximity threshold
-appearance_thresh: 0.25              # Appearance similarity threshold
+proximity_thresh: 0.7                # Proximity threshold (relaxed)
+appearance_thresh: 0.5               # Appearance similarity threshold
+model: auto                          # Use built-in ReID model
 
 # Camera motion compensation
 gmc_method: sparseOptFlow            # Options: sparseOptFlow, orb, ecc, none
+
+# Quality filters
+min_box_area: 100                    # Minimum detection box area
+aspect_ratio_thresh: 1.6             # Filter unrealistic aspect ratios
+
+# Frame rate
+frame_rate: 25
 ```
 
-**For 50+ FPS videos**, increase `track_buffer` proportionally (e.g., 60 for 50 FPS).
+**For 50+ FPS videos**, this config already uses `track_buffer: 120` which is optimized for high frame rates.
+
+**Key Parameters to Adjust:**
+- `track_buffer`: Higher = remembers lost tracks longer (good for occlusions)
+- `match_thresh`: Higher = stricter matching (fewer ID switches but more lost tracks)
+- `proximity_thresh` / `appearance_thresh`: Balance between spatial and visual matching
 
 ## ⚠️ Known Limitations
 
@@ -257,7 +309,7 @@ These features exist in the codebase but are not actively maintained.
 - Or manually increase:
   - `REID_SPATIAL_THRESHOLD` → 400+
   - `REID_TEMPORAL_WINDOW` → 120+
-  - `track_buffer` in `botsort.yaml` → 60+
+  - `track_buffer` in `botsort.yaml` → 120 (already set)
 
 ## 📊 Output Files
 
@@ -270,9 +322,14 @@ After processing, find results in `analytics_export/`:
 - `data/pass_events.csv` - Detected passing events
 
 ### Visualizations (PNG)
-- `player_heatmaps/` - Individual movement heatmaps
+- `heatmaps/team_0_heatmap.png` - Team A movement heatmap
+- `heatmaps/team_1_heatmap.png` - Team B movement heatmap
+- `player_heatmaps/player_X_heatmap.png` - Individual player heatmaps
 - `performance_plots/distance_per_player.png` - Distance comparison
 - `performance_plots/speed_comparison.png` - Speed metrics
+- `performance_plots/pass_accuracy_vs_volume.png` - Pass analysis
+- `performance_plots/sprint_count.png` - Sprint statistics
+- `performance_plots/high_intensity_distance.png` - High-intensity running
 - `performance_plots/team_comparison_dashboard.png` - Overall dashboard
 
 ### Summary
@@ -313,6 +370,8 @@ Contributions are welcome! Areas for improvement:
 - [ ] Automatic highlight detection
 - [ ] Real-time processing optimization
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -320,15 +379,35 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **Ultralytics YOLOv11** - Object detection framework
-- **BoT-SORT** - Multi-object tracking algorithm
-- **SigLIP** - Vision-language model by Google
-- **UMAP** - Dimensionality reduction
+- **BoT-SORT** - Multi-object tracking algorithm  
+- **SigLIP** (Google) - Vision-language model for team classification
+- **UMAP** - Dimensionality reduction for clustering
 
 ## 📞 Contact
 
-For questions or issues, please open a GitHub issue or contact [your-email@example.com]
+**Author**: Ismail Mohamed  
+**Email**: ismmailmuhamed@gmail.com  
+**GitHub**: [@YoussefEsmael](https://github.com/YoussefEsmael)
+
+For questions, bug reports, or feature requests:
+- 📧 Email: ismmailmuhamed@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/YoussefEsmael/Football-Tracking-and-Analytics-System/discussions)
 
 ---
 
 ⭐ **If you find this project useful, please consider giving it a star!** ⭐
 
+## 🚀 Future Roadmap
+
+- [ ] Improve ReID robustness for long-term tracking
+- [ ] Real-time processing optimization
+- [ ] Automatic highlight detection (goals, key moments)
+- [ ] 3D tactical view with homography transformation
+- [ ] Jersey number recognition
+- [ ] Advanced tactical analysis (formations, pressing patterns)
+- [ ] Web-based dashboard for live analysis
+
+---
+
+Made with ⚽ and 🧠 by Ismail Mohamed
