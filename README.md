@@ -32,6 +32,7 @@ Advanced vision-language model for robust team identification and tracking.
 
 [![Watch Video - With SigLIP](https://img.shields.io/badge/▶️_Watch_Demo-With_SigLIP-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1N09DJWhz78xAncd6sGoKwjOF22G6o_Se/view?usp=sharing)
 
+
 #### Without SigLIP (Color-Based Classification)
 Faster processing using traditional color histogram analysis.
 
@@ -401,3 +402,4 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
