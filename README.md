@@ -68,10 +68,6 @@ https://github.com/user-attachments/assets/ab416d71-8315-49ab-8793-6200d8579393
 
 ---
 
-
-![Sample Frame](analytics_export/sample_frame.png)
-*Players automatically tracked and classified into teams with unique IDs*
-
 ### Performance Analytics
 
 #### Distance Coverage Analysis
@@ -428,4 +424,5 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
 
