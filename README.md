@@ -25,6 +25,20 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 
 ## 🎥 Results
 
+### Demo Videos
+
+#### With SigLIP Team Classification
+Advanced vision-language model for robust team identification and tracking.
+
+[![Watch Video - With SigLIP](https://img.shields.io/badge/▶️_Watch_Demo-With_SigLIP-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1N09DJWhz78xAncd6sGoKwjOF22G6o_Se/view?usp=sharing)
+
+#### Without SigLIP (Color-Based Classification)
+Faster processing using traditional color histogram analysis.
+
+[![Watch Video - Without SigLIP](https://img.shields.io/badge/▶️_Watch_Demo-Without_SigLIP-34A853?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1jk_8f7A4X4MPNvZUvvRRLxw-Fg2DLlcV/view?usp=sharing)
+
+---
+
 ### Sample Output Video
 *Tracked players with team-colored ellipses, persistent IDs, and movement trails*
 
@@ -387,7 +401,3 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
-
-
-
-
