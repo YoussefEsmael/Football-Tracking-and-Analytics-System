@@ -12,7 +12,8 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 - **YOLOv11 Object Detection** - Detects players, goalkeepers, referees, and ball
 - **BoT-SORT Multi-Object Tracking** - Maintains consistent player identities with built-in ReID
 - **SigLIP + UMAP Team Classification** - Vision-language model for robust jersey color recognition
-- **Global ID Management** - Persistent player tracking across occlusions and camera cuts
+- **Global ID Management** - Persistent player
+-  tracking across occlusions and camera cuts
 - **Advanced Analytics Engine** - Comprehensive performance metrics and tactical insights
 
 ### Analytics Outputs
@@ -67,8 +68,6 @@ https://github.com/user-attachments/assets/ab416d71-8315-49ab-8793-6200d8579393
 
 ---
 
-### Sample Output Video
-*Tracked players with team-colored ellipses, persistent IDs, and movement trails*
 
 ![Sample Frame](analytics_export/sample_frame.png)
 *Players automatically tracked and classified into teams with unique IDs*
@@ -429,3 +428,4 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
