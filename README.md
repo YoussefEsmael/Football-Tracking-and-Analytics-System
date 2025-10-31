@@ -40,9 +40,6 @@ Faster processing using traditional color histogram analysis.
 
 ---
 
-### Sample Output Video
-*Tracked players with team-colored ellipses, persistent IDs, and movement trails*
-
 ![Sample Frame](analytics_export/sample_frame.png)
 *Players automatically tracked and classified into teams with unique IDs*
 
@@ -402,4 +399,5 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
 
