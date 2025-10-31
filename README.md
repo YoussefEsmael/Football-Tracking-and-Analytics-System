@@ -352,12 +352,6 @@ Contributions are welcome! Areas for improvement:
 - [ ] Automatic highlight detection
 - [ ] Real-time processing optimization
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - **Ultralytics YOLOv11** - Object detection framework
@@ -393,6 +387,7 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
 
 
 
