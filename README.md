@@ -48,10 +48,6 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 
 ![Speed Analysis](analytics_export/performance_plots/speed_comparison.png)
 
-#### Pass Analysis
-*Relationship between pass volume and accuracy*
-
-![Pass Accuracy](analytics_export/performance_plots/pass_accuracy_vs_volume.png)
 
 #### Sprint Performance
 *Number of high-intensity sprints per player*
@@ -411,3 +407,4 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
