@@ -30,15 +30,45 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 #### With SigLIP Team Classification
 Advanced vision-language model for robust team identification and tracking.
 
-[![Watch Video - With SigLIP](https://img.shields.io/badge/▶️_Watch_Demo-With_SigLIP-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1N09DJWhz78xAncd6sGoKwjOF22G6o_Se/view?usp=sharing)
+
+
+https://github.com/user-attachments/assets/5c61fe86-bcb4-4569-ba07-f7528e632622
+
 
 
 #### Without SigLIP (Color-Based Classification)
 Faster processing using traditional color histogram analysis.
 
-[![Watch Video - Without SigLIP](https://img.shields.io/badge/▶️_Watch_Demo-Without_SigLIP-34A853?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1jk_8f7A4X4MPNvZUvvRRLxw-Fg2DLlcV/view?usp=sharing)
+
+
+https://github.com/user-attachments/assets/ab416d71-8315-49ab-8793-6200d8579393
+
+
+
+### ⚖️ SigLIP vs Color-Based Classification: Trade-offs
+
+**SigLIP Approach:**
+- ✅ More robust for challenging scenarios (similar jersey colors, varying lighting)
+- ✅ Better accuracy for ambiguous cases
+- ❌ **High confidence threshold** - doesn't classify players until very confident
+- ❌ **Poor occlusion handling** - loses team assignment when players are partially occluded
+- ❌ Slower processing due to deep learning inference
+
+**Color-Based Approach:**
+- ✅ **Highlights ALL detected players** regardless of confidence
+- ✅ **Excellent occlusion handling** - maintains team assignment through partial occlusions
+- ✅ Faster processing with traditional computer vision
+- ❌ Less robust with similar jersey colors (e.g., dark blue vs black)
+- ❌ Sensitive to lighting variations and shadows
+
+**Recommendation:**
+- Use **SigLIP** for matches with similar team colors or complex lighting conditions where accuracy is critical
+- Use **color-based** (with `--no-siglip` flag) for better player coverage and real-time requirements where occlusion handling is important
 
 ---
+
+### Sample Output Video
+*Tracked players with team-colored ellipses, persistent IDs, and movement trails*
 
 ![Sample Frame](analytics_export/sample_frame.png)
 *Players automatically tracked and classified into teams with unique IDs*
@@ -399,5 +429,3 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
-
-
