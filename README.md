@@ -33,11 +33,6 @@ A comprehensive computer vision pipeline for automatic football match analysis u
 
 ### Performance Analytics
 
-#### Team Comparison Dashboard
-*Comprehensive team statistics including distance, passes, speed, and sprints*
-
-![Team Dashboard](analytics_export/performance_plots/team_comparison_dashboard.png)
-
 #### Distance Coverage Analysis
 *Total distance covered by each player throughout the match*
 
@@ -398,5 +393,6 @@ For questions, bug reports, or feature requests:
 ---
 
 Made with ⚽ and 🧠 by Ismail Mohamed
+
 
 
